@@ -25,7 +25,7 @@ public class ItemCompanion : MonoBehaviour
         yield return new WaitForSeconds(1f);
         _writes.SetActive(false);
         _messageObject.SetActive(true);
-        _message.text = "Работает, вот так вот";
+        _message.text = "Работает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вот";
         
     }
     
