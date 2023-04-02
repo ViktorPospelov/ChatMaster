@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class GameField : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject itemCompanion;
+    [SerializeField] private Transform spotToSpawn;
+
+    private Coroutine spawnCorutine;
     void Start()
     {
-        
+        spawnCorutine = StartCoroutine(SpawnMassage());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator SpawnMassage()
     {
-        
+        Instantiate(itemCompanion, spotToSpawn);
+        yield return new WaitForSeconds(6.5f);
+        spawnCorutine = StartCoroutine(SpawnMassage());
     }
-}
+
+   }
