@@ -11,20 +11,15 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _message;
     [SerializeField] private GameObject _messageObject;
     
-   
-    void Start()
-    {
-        StartAnimation();
-    }
+    
 
-    private void StartAnimation()
+    public void SetMessage(string massage)
     {
         _messageObject.SetActive(false);
         _messageObject.SetActive(true);
-        _message.text = "Работает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вот";
-        
-        
-        FindObjectOfType<GameField>().NormalizePosition(this.gameObject);
+        _message.text = massage;
+        gameObject.transform.localScale += new Vector3(0, 0.001f, 0);
+        GameField.NormalizePosition(this.gameObject);
     }
     
 }

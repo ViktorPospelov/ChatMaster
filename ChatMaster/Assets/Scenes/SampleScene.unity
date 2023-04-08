@@ -907,6 +907,7 @@ GameObject:
   - component: {fileID: 504923864}
   - component: {fileID: 504923866}
   - component: {fileID: 504923865}
+  - component: {fileID: 504923867}
   m_Layer: 0
   m_Name: SelectBox
   m_TagString: Untagged
@@ -972,6 +973,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504923863}
   m_CullTransparentMesh: 1
+--- !u!114 &504923867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504923863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 8
+    m_Bottom: 8
+  m_ChildAlignment: 4
+  m_Spacing: 4
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,8 +1455,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860a5a013ffa38f4ca6f96cc5ba01727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPlayer: {fileID: 4351174586023720803, guid: d96a3fc6803b72b4c9442b0afed39efd, type: 3}
   itemCompanion: {fileID: 4351174586023720803, guid: bee332546baecb048b7bb045b75d0ae1, type: 3}
   spotToSpawn: {fileID: 402220552}
+  answer: {fileID: 3892626846203225040, guid: 341fc239333189244bae2ab2e1d58317, type: 3}
+  selectBox: {fileID: 504923864}
 --- !u!1 &838581466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3305,12 +3335,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 402220552}
   m_Horizontal: 0
-  m_Vertical: 1
-  m_MovementType: 0
-  m_Elasticity: 0.1
-  m_Inertia: 1
+  m_Vertical: 0
+  m_MovementType: 1
+  m_Elasticity: 0
+  m_Inertia: 0
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 0
   m_Viewport: {fileID: 2104064290}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}

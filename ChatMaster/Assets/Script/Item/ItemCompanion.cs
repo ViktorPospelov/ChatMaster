@@ -12,23 +12,29 @@ public class ItemCompanion : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _message;
     [SerializeField] private GameObject _messageObject;
     
-   
-    void Start()
-    {
-        StartCoroutine(StartAnimation());
-    }
+    private const float _maxTimeWrite = 1.5f;
+    private const float _minTimeWrite = 0.2f;
+    
 
-    private IEnumerator StartAnimation()
+    private IEnumerator StartAnimation(string message)
     {
+        float timeWrite = _minTimeWrite;
+        timeWrite = Random.Range(_minTimeWrite,_maxTimeWrite) + (message.Length*_minTimeWrite/20f);
+        Debug.Log(timeWrite);
         _messageObject.SetActive(false);
         _writes.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(timeWrite);
         _writes.SetActive(false);
         _messageObject.SetActive(true);
-        _message.text = "Работает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вот";
+        _message.text = message;
         
-        
-        FindObjectOfType<GameField>().NormalizePosition(this.gameObject);
+        GameField.NormalizePosition(this.gameObject);
     }
     
+    
+
+    public void SetMessage(string masege)
+    {
+        StartCoroutine(StartAnimation(masege));
+    }
 }
