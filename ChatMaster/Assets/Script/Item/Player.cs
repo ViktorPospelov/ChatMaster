@@ -5,25 +5,21 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
-public class ItemCompanion : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private Image _avatar;
-    [SerializeField] private GameObject _writes;
     [SerializeField] private TextMeshProUGUI _message;
     [SerializeField] private GameObject _messageObject;
     
    
     void Start()
     {
-        StartCoroutine(StartAnimation());
+        StartAnimation();
     }
 
-    private IEnumerator StartAnimation()
+    private void StartAnimation()
     {
         _messageObject.SetActive(false);
-        _writes.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        _writes.SetActive(false);
         _messageObject.SetActive(true);
         _message.text = "Работает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вотРаботает, вот так вот";
         
