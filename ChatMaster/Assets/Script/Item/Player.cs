@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         _messageObject.SetActive(true);
         _message.text = massage;
         gameObject.transform.localScale += new Vector3(0, 0.001f, 0);
-        GameField.NormalizePosition(this.gameObject);
+        GameField.NormalizePosition(gameObject);
     }
     
 }

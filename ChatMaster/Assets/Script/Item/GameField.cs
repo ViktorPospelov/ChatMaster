@@ -24,6 +24,7 @@ public class GameField : MonoBehaviour
 
     void Start()
     {
+        ClearField();
         AnswerClick += ActionOrAnswer;
         spawnCorutine = StartCoroutine(SpawnMassage());
         var answ = Instantiate(answer, selectBox);
@@ -33,16 +34,16 @@ public class GameField : MonoBehaviour
 
     private IEnumerator SpawnMassage()
     {
-        var ic = Instantiate(itemCompanion.gameObject, spotToSpawn);
+        var ic = Instantiate(itemCompanion, spotToSpawn);
         ic.GetComponent<ItemCompanion>().SetMessage("нармас работаетиадонармас работает так и надонармас работает так и надо");
         
-        yield return new WaitForSeconds(8.5f);
+        yield return new WaitForSeconds(4.5f);
 
-        var ip = Instantiate(itemPlayer.gameObject, spotToSpawn);
+        var ip = Instantiate(itemPlayer, spotToSpawn);
         ip.GetComponent<Player>().SetMessage("Да ЗАЕБС");
-        ip.gameObject.transform.localScale += new Vector3(0, 0.001f, 0);
         yield return new WaitForSeconds(4.5f);
         spawnCorutine = StartCoroutine(SpawnMassage());
+        
     }
 
     private void ActionOrAnswer(int num)
@@ -52,5 +53,17 @@ public class GameField : MonoBehaviour
     public static void NormalizePosition(GameObject gameObject)
     {
         gameObject.transform.localScale += new Vector3(0, 0.001f, 0);
+    }
+
+    private void ClearField()
+    {
+        foreach (Transform t in spotToSpawn.transform)
+        {
+            Destroy(t.gameObject);
+        }
+        foreach (Transform t in selectBox.transform)
+        {
+            Destroy(t.gameObject);
+        }
     }
 }
