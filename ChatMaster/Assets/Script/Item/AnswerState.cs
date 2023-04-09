@@ -1,6 +1,6 @@
 public enum AnswerState
 {
-    Normal,
-    Red,
-    Green
+    Normal = 0,
+    Red = 1,
+    Green = 2,
 }

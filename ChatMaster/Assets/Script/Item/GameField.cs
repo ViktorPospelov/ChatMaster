@@ -14,42 +14,42 @@ public class GameField : MonoBehaviour
     [SerializeField] private Transform spotToSpawn;
     [SerializeField] private GameObject answer;
     [SerializeField] private Transform selectBox;
+    [SerializeField] private LvL[] lvls;
+    private GameManager gameManager;
 
     private const float _maxTimeSpawn = 1.5f;
     private const float _minTimeSpawn = 0.2f;
 
     private Coroutine spawnCorutine;
-    
-    public static Action<int> AnswerClick;
+
 
     void Start()
     {
         ClearField();
-        AnswerClick += ActionOrAnswer;
-        spawnCorutine = StartCoroutine(SpawnMassage());
-        var answ = Instantiate(answer, selectBox);
-        answer.GetComponent<Answers>().SetAnswerAndGetButton(AnswerState.Green, "Работа ск");
+        gameManager = new GameManager(lvls[0], this);
         
-}
-
-    private IEnumerator SpawnMassage()
+        gameManager.StartLVL();
+    }
+    
+    public void SpawnAnswerButton(string massage, AnswerState answerState, int prise, int answerNextIndex)
+    {
+        var answ = Instantiate(answer, selectBox);
+        answ.GetComponent<AnswersP>().SetAnswer(prise, answerState, massage, answerNextIndex);
+    }
+    public void SpawnCompanionMassage(string massage)
     {
         var ic = Instantiate(itemCompanion, spotToSpawn);
-        ic.GetComponent<ItemCompanion>().SetMessage("нармас работаетиадонармас работает так и надонармас работает так и надо");
-        
-        yield return new WaitForSeconds(4.5f);
-
-        var ip = Instantiate(itemPlayer, spotToSpawn);
-        ip.GetComponent<Player>().SetMessage("Да ЗАЕБС");
-        yield return new WaitForSeconds(4.5f);
-        spawnCorutine = StartCoroutine(SpawnMassage());
-        
+        ic.GetComponent<ItemCompanion>()
+            .SetMessage(massage);
     }
-
-    private void ActionOrAnswer(int num)
+    public void SpawnPlayerMassage(string massage)
     {
-        Debug.Log("Клик сука "+num);
+        var ip = Instantiate(itemPlayer, spotToSpawn);
+        ip.GetComponent<Player>().SetMessage(massage);
     }
+
+    
+
     public static void NormalizePosition(GameObject gameObject)
     {
         gameObject.transform.localScale += new Vector3(0, 0.001f, 0);
@@ -61,6 +61,12 @@ public class GameField : MonoBehaviour
         {
             Destroy(t.gameObject);
         }
+
+        ClearAnswerBox();
+    }
+
+    public void ClearAnswerBox()
+    {
         foreach (Transform t in selectBox.transform)
         {
             Destroy(t.gameObject);
