@@ -13,13 +13,13 @@ public class ItemCompanion : MonoBehaviour
     [SerializeField] private GameObject _messageObject;
     
     private const float _maxTimeWrite = 1.2f;
-    private const float _minTimeWrite = 0.4f;
+    private const float _minTimeWrite = 0.6f;
     
 
     private IEnumerator StartAnimation(string message)
     {
         float timeWrite = _minTimeWrite;
-        timeWrite = Random.Range(_minTimeWrite,_maxTimeWrite) + (message.Length*_minTimeWrite/20f);
+        timeWrite = Random.Range(_minTimeWrite,_maxTimeWrite) + (message.Length*_minTimeWrite/15f);
         Debug.Log(timeWrite);
         _messageObject.SetActive(false);
         _writes.SetActive(true);
