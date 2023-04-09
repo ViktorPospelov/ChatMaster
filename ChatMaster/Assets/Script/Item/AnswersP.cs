@@ -28,7 +28,6 @@ public class AnswersP : MonoBehaviour
         button.onClick.AddListener(() =>
         {
             _action?.Invoke(_answerIndex,_answerText.text);
-            Debug.Log("Есть клик");
         });
     }
 
@@ -51,11 +50,6 @@ public class AnswersP : MonoBehaviour
                 break;
         }
     
-        
-    }
-
-    public void Click()
-    {
         
     }
 }

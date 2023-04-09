@@ -17,18 +17,25 @@ public class GameField : MonoBehaviour
     [SerializeField] private LvL[] lvls;
     private GameManager gameManager;
 
+    private string[] companionMessage;
+    private int indexCompanionMessage = 0;
+
     private const float _maxTimeSpawn = 1.5f;
     private const float _minTimeSpawn = 0.2f;
 
     private Coroutine spawnCorutine;
-
+    
+    public static Action ConpanionEndWrite;
 
     void Start()
     {
         ClearField();
         gameManager = new GameManager(lvls[0], this);
         
+        ConpanionEndWrite += CompanionMassageHelper;
+        
         gameManager.StartLVL();
+        
     }
     
     public void SpawnAnswerButton(string massage, AnswerState answerState, int prise, int answerNextIndex)
@@ -36,12 +43,28 @@ public class GameField : MonoBehaviour
         var answ = Instantiate(answer, selectBox);
         answ.GetComponent<AnswersP>().SetAnswer(prise, answerState, massage, answerNextIndex);
     }
-    public void SpawnCompanionMassage(string massage)
+    public void SpawnCompanionMassage(string[] message)
     {
+        companionMessage = message;
         var ic = Instantiate(itemCompanion, spotToSpawn);
         ic.GetComponent<ItemCompanion>()
-            .SetMessage(massage);
+            .SetMessage(companionMessage[indexCompanionMessage]);
+
+       
     }
+   
+    private void CompanionMassageHelper()
+    {
+        if (companionMessage.Length > 1) ///Ботва с индексами доделать
+        {
+            indexCompanionMessage += 1;
+            var ic = Instantiate(itemCompanion, spotToSpawn);
+            ic.GetComponent<ItemCompanion>()
+                .SetMessage(companionMessage[indexCompanionMessage]);
+            if (companionMessage.Length == indexCompanionMessage-1) indexCompanionMessage = 0;
+        }
+    }
+    
     public void SpawnPlayerMassage(string massage)
     {
         var ip = Instantiate(itemPlayer, spotToSpawn);

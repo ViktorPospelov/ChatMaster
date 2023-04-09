@@ -12,8 +12,8 @@ public class ItemCompanion : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _message;
     [SerializeField] private GameObject _messageObject;
     
-    private const float _maxTimeWrite = 1.5f;
-    private const float _minTimeWrite = 0.2f;
+    private const float _maxTimeWrite = 1.2f;
+    private const float _minTimeWrite = 0.4f;
     
 
     private IEnumerator StartAnimation(string message)
@@ -29,6 +29,14 @@ public class ItemCompanion : MonoBehaviour
         _message.text = message;
         
         GameField.NormalizePosition(this.gameObject);
+        StartCoroutine(MoveNext());
+        
+    }
+
+    private IEnumerator MoveNext()
+    {
+        yield return new WaitForSeconds(Random.Range(_minTimeWrite,_maxTimeWrite));
+        GameField.ConpanionEndWrite?.Invoke();
     }
     
     

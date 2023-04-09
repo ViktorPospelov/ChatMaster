@@ -11,6 +11,7 @@ public class GameManager
     private int currentIndex = 0;
     private int currentLvL;
     public static Action<int,string> AnswerClick;
+    
 
     public GameManager(LvL lvl, GameField gameField)
     {
@@ -21,18 +22,17 @@ public class GameManager
 
     public void StartLVL()
     {
+        
         AnswerClick += ActionOrAnswer;
         SetMessageAndAnswer();
+        
     }
 
     private void SetMessageAndAnswer()
     {
         if (_lvL.CompanionPhrases[currentIndex].companionPhrases.Length != 0)
-        {
-            foreach (var companionPhrases in _lvL.CompanionPhrases[currentIndex].companionPhrases)
-            {
-                _gameField.SpawnCompanionMassage(companionPhrases);
-            }
+        { 
+            _gameField.SpawnCompanionMassage(_lvL.CompanionPhrases[currentIndex].companionPhrases);
         }
 
         if (_lvL.CompanionPhrases[currentIndex].playerPhrases.Length != 0)
@@ -48,10 +48,12 @@ public class GameManager
             }
         }
     }
+
+    
     private void ActionOrAnswer(int num, string text)
     {
         currentIndex = num;
-        Debug.Log("Клик сука " + num);
+        
         _gameField.ClearAnswerBox();
         _gameField.SpawnPlayerMassage(text);
         SetMessageAndAnswer();
