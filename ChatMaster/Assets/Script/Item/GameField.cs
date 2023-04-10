@@ -40,6 +40,12 @@ public class GameField : MonoBehaviour
 
     public void SpawnAnswerButton(string massage, AnswerState answerState, int prise, int answerNextIndex)
     {
+        if (answerNextIndex > 55)
+        {
+            Debug.Log($"Победил: {answerNextIndex == 999}");
+            if (massage == null) return;
+        }
+
         var answ = Instantiate(answer, selectBox);
         answ.GetComponent<AnswersP>().SetAnswer(prise, answerState, massage, answerNextIndex);
     }
@@ -48,10 +54,11 @@ public class GameField : MonoBehaviour
     {
         StartCoroutine(FirstCompanionMassageHelper(message));
     }
+
     private IEnumerator FirstCompanionMassageHelper(string[] message)
     {
-        yield return new WaitForSeconds(Random.Range(_minTimeSpawn,_maxTimeSpawn));
-        
+        yield return new WaitForSeconds(Random.Range(_minTimeSpawn, _maxTimeSpawn));
+
         companionMessage = message;
         var ic = Instantiate(itemCompanion, spotToSpawn);
         ic.GetComponent<ItemCompanion>()
@@ -62,7 +69,7 @@ public class GameField : MonoBehaviour
 
     private void CompanionMassageHelper()
     {
-        if (companionMessage.Length > 1 && indexCompanionMessage < 10) 
+        if (companionMessage.Length > 1 && indexCompanionMessage < 10)
         {
             indexCompanionMessage += 1;
             var ic = Instantiate(itemCompanion, spotToSpawn);

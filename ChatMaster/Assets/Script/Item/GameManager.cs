@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager
@@ -34,13 +35,18 @@ public class GameManager
         { 
             _gameField.SpawnCompanionMassage(_lvL.CompanionPhrases[currentIndex].companionPhrases);
         }
-
+       // if (currentIndex > 55) currentIndex = 0;
         if (_lvL.CompanionPhrases[currentIndex].playerPhrases.Length != 0)
         {
+           
             var CompPhr = _lvL.CompanionPhrases[currentIndex];
             for (var i = 0; i < CompPhr.playerPhrases.Length; i++)
             {
-                
+                if (CompPhr.phraseJumpIndex[i] > 55)
+                {
+                    Debug.Log($"Победил: {CompPhr.phraseJumpIndex[i] == 999}");
+                    if (CompPhr.playerPhrases[0] == "") return;
+                }
                 _gameField.SpawnAnswerButton(CompPhr.playerPhrases[i],
                     (AnswerState)CompPhr.colorPlayerPhrases[i],
                     CompPhr.prisePlayerPhrases[i],
