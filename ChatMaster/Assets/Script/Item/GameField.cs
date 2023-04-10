@@ -40,11 +40,6 @@ public class GameField : MonoBehaviour
 
     public void SpawnAnswerButton(string massage, AnswerState answerState, int prise, int answerNextIndex)
     {
-        if (answerNextIndex > 55)
-        {
-            Debug.Log($"Победил: {answerNextIndex == 999}");
-            if (massage == null) return;
-        }
 
         var answ = Instantiate(answer, selectBox);
         answ.GetComponent<AnswersP>().SetAnswer(prise, answerState, massage, answerNextIndex);

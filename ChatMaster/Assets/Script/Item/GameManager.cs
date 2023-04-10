@@ -45,7 +45,7 @@ public class GameManager
                 if (CompPhr.phraseJumpIndex[i] > 55)
                 {
                     Debug.Log($"Победил: {CompPhr.phraseJumpIndex[i] == 999}");
-                    if (CompPhr.playerPhrases[0] == "") return;
+                    if (CompPhr.playerPhrases[0] == "") return;// переделать победу
                 }
                 _gameField.SpawnAnswerButton(CompPhr.playerPhrases[i],
                     (AnswerState)CompPhr.colorPlayerPhrases[i],
