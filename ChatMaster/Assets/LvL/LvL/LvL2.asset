@@ -21,4 +21,15 @@ MonoBehaviour:
   CompanionName:
   - "\u041D\u0438\u043A\u0438\u0442\u0430"
   - Nikita
-  CompanionPhrases: []
+  CompanionPhrases:
+  - {fileID: 11400000, guid: 46464ac7eb746a34898a1c1a9a6e0692, type: 2}
+  - {fileID: 11400000, guid: e35b6d5252895f344b711521553d2b98, type: 2}
+  - {fileID: 11400000, guid: b88a1f1273d4fba4ebc117ce8038603b, type: 2}
+  - {fileID: 11400000, guid: 98b9b01ac6efc474a848b1ca6f4af9fd, type: 2}
+  - {fileID: 11400000, guid: 323889cfd9fcd234b96f2b955bca2039, type: 2}
+  - {fileID: 11400000, guid: 42ec23bd13661304bb6069a728660a72, type: 2}
+  - {fileID: 11400000, guid: 1ae451420e62e824a8fbab251ab324cb, type: 2}
+  - {fileID: 11400000, guid: 891922ee2ad43ac4a8b414707af5a64c, type: 2}
+  - {fileID: 11400000, guid: 66d560fed4592d545909a47c1a35a621, type: 2}
+  - {fileID: 11400000, guid: 3580df01af5932c41ab04bb65074e3af, type: 2}
+  - {fileID: 11400000, guid: 0bb271ea49b26924fa05f3448bc8ff50, type: 2}
