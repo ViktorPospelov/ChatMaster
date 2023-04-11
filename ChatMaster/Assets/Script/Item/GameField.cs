@@ -16,7 +16,7 @@ public class GameField : MonoBehaviour
     [SerializeField] private GameObject answer;
     [SerializeField] private Transform selectBox;
     [SerializeField] private LvL[] lvls;
-    private GameManager gameManager;
+    public static GameManager gameManager;
 
     private string[] companionMessage;
     private int indexCompanionMessage = 0;
@@ -31,6 +31,7 @@ public class GameField : MonoBehaviour
     void Start()
     {
         ClearField();
+        
         gameManager = new GameManager(lvls[0], this);
 
         ConpanionEndWrite += CompanionMassageHelper;

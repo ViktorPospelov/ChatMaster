@@ -27,6 +27,7 @@ public class AnswersP : MonoBehaviour
         _action = GameManager.AnswerClick;
         button.onClick.AddListener(() =>
         {
+            if(GameField.gameManager.LvlState!=LvlState.Game)return;
             _action?.Invoke(_answerIndex,_answerText.text);
         });
     }
