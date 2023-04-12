@@ -13,13 +13,5 @@ public class Player : MonoBehaviour
     
     
 
-    public void SetMessage(string massage)
-    {
-        _messageObject.SetActive(false);
-        _messageObject.SetActive(true);
-        _message.text = massage;
-        gameObject.transform.localScale += new Vector3(0, 0.001f, 0);
-        GameField.NormalizePosition(gameObject);
-    }
-    
+   
 }
