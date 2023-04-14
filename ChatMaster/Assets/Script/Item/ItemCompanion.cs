@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
-public class ItemCompanion : MonoBehaviour
+public class ItemCompanion : ItemBase
 {
     [SerializeField] private Image _avatar;
     [SerializeField] private GameObject _writes;
-    [SerializeField] private TextMeshProUGUI _message;
+    
     [SerializeField] private GameObject _messageObject;
     
    

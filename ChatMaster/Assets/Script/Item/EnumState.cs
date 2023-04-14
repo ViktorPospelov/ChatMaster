@@ -4,6 +4,12 @@ public enum AnswerState
     Red = 1,
     Green = 2,
 }
+public enum ItemState
+{
+    Player = 0,
+    Companion = 1,
+    Answers = 2,
+}
 public enum LvlState
 {
     Game = 0,

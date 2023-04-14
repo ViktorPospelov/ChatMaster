@@ -10,13 +10,17 @@ using Random = UnityEngine.Random;
 
 public class GameField : MonoBehaviour
 {
-    [SerializeField] private GameObject itemPlayer;
-    [SerializeField] private GameObject itemCompanion;
-    [SerializeField] private Transform spotToSpawn;
-    [SerializeField] private GameObject answer;
+    [SerializeField] private ItemPlayer itemPlayer;
+    [SerializeField] private ItemCompanion itemCompanion;
+    [SerializeField] private ItemAnswers itemAnswer;
+    [SerializeField] private Transform correspondenceField;
     [SerializeField] private Transform selectBox;
-    [SerializeField] private LvL[] lvls;
-    public static GameManager gameManager;
+    
+    
+    [SerializeField] protected LvL[] lvLs;// Врменно для запуска игры, потом получать в старт поля
+    
+    
+    protected Queue<Phrases> ToTheCorrespondenceField;
 
   
 
@@ -25,5 +29,28 @@ public class GameField : MonoBehaviour
        
     }
 
+    protected void PutIntoPlay(ItemBase item)
+    {
+        
+        var it = Instantiate(item, selectBox);
+        switch (it)
+        {
+            case ItemAnswers answer:
+                //it
+                break;
+            case ItemPlayer player:
+                //it
+                break;
+            case ItemCompanion companion:
+                //it
+                break;
+            default:
+                throw new Exception("GameField: PutIntoPlay: ItemBase error cast");
+                break;
+            
+        }
+
+        
+    }
    
 }
