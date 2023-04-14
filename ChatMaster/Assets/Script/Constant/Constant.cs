@@ -4,5 +4,6 @@ public static partial class Constant
     {
         public const float MaxReadDelay = 1.6f;
         public const float MinReadDelay = 0.8f;
+        public const float ReadingOneLetter = 0.04f;
     }
 }
