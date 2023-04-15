@@ -1452,16 +1452,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 827249461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 860a5a013ffa38f4ca6f96cc5ba01727, type: 3}
+  m_Script: {fileID: 11500000, guid: a1be314d12a164b49b4cb793c52c87c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPlayer: {fileID: 4351174586023720803, guid: d96a3fc6803b72b4c9442b0afed39efd, type: 3}
-  itemCompanion: {fileID: 4351174586023720803, guid: bee332546baecb048b7bb045b75d0ae1, type: 3}
-  spotToSpawn: {fileID: 402220552}
-  answer: {fileID: 3892626846203225040, guid: 341fc239333189244bae2ab2e1d58317, type: 3}
+  itemPlayer: {fileID: 0}
+  itemCompanion: {fileID: 0}
+  itemAnswer: {fileID: 0}
+  correspondenceField: {fileID: 0}
   selectBox: {fileID: 504923864}
-  lvls:
-  - {fileID: 11400000, guid: 9acbc57e1a104ea4ab927f5ecf79817d, type: 2}
+  lvLs: []
 --- !u!1 &838581466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,15 +1735,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625399443890322336, guid: ac3e432dbbc921f4f8a12e70291e5358, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.043
       objectReference: {fileID: 0}
     - target: {fileID: 1625399443890322336, guid: ac3e432dbbc921f4f8a12e70291e5358, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1625399443890322336, guid: ac3e432dbbc921f4f8a12e70291e5358, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.043
       objectReference: {fileID: 0}
     - target: {fileID: 1625399444970251763, guid: ac3e432dbbc921f4f8a12e70291e5358, type: 3}
       propertyPath: m_Name
