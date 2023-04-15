@@ -11,12 +11,7 @@ public class ItemCompanion : ItemBase
     [SerializeField] private GameObject _writes;
     
     [SerializeField] private GameObject _messageObject;
-    
-    [SerializeField] private Image _avatar;
-    [SerializeField] private GameObject _writes;
-    [SerializeField] private TextMeshProUGUI _message;
-    [SerializeField] private GameObject _messageObject;
-    
+   
     private const float _maxTimeWrite = 1.2f;
     private const float _minTimeWrite = 0.6f;
     
@@ -37,7 +32,7 @@ public class ItemCompanion : ItemBase
         StartCoroutine(MoveNext());
         
     }
-
+    
     private IEnumerator MoveNext()
     {
         yield return new WaitForSeconds(Random.Range(_minTimeWrite,_maxTimeWrite));
@@ -45,7 +40,7 @@ public class ItemCompanion : ItemBase
     }
     
     
-
+    
     public void SetMessage(string masege)
     {
         StartCoroutine(StartAnimation(masege));
