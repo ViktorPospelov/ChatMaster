@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 110, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 196, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3744036053207264747
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 3357545689147410635}
   - component: {fileID: 7065396849548435203}
   - component: {fileID: 3200443700173253883}
-  - component: {fileID: 1010133940483506823}
+  - component: {fileID: 5580662531658185307}
   m_Layer: 0
   m_Name: "\u0421ompanion"
   m_TagString: Untagged
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &1010133940483506823
+--- !u!114 &5580662531658185307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,9 +411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55239d29b0c02b041a87a3d767c7260a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  message: {fileID: 5014533255916284828}
+  itemState: 1
   _avatar: {fileID: 2648763810061166798}
   _writes: {fileID: 4222383689407728258}
-  _message: {fileID: 5014533255916284828}
   _messageObject: {fileID: 8561644394519912408}
 --- !u!1 &6228523573926900836
 GameObject:
@@ -816,7 +817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 165, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 230, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &8148508527138350491

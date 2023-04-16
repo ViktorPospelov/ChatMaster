@@ -1455,12 +1455,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1be314d12a164b49b4cb793c52c87c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPlayer: {fileID: 0}
-  itemCompanion: {fileID: 0}
-  itemAnswer: {fileID: 0}
-  correspondenceField: {fileID: 0}
+  itemPlayer: {fileID: 2080252789120157065, guid: d96a3fc6803b72b4c9442b0afed39efd, type: 3}
+  itemCompanion: {fileID: 5580662531658185307, guid: bee332546baecb048b7bb045b75d0ae1, type: 3}
+  itemAnswer: {fileID: 4474923413207860652, guid: 341fc239333189244bae2ab2e1d58317, type: 3}
+  correspondenceField: {fileID: 402220552}
   selectBox: {fileID: 504923864}
-  lvLs: []
+  lvLs:
+  - {fileID: 11400000, guid: 9acbc57e1a104ea4ab927f5ecf79817d, type: 2}
 --- !u!1 &838581466
 GameObject:
   m_ObjectHideFlags: 0

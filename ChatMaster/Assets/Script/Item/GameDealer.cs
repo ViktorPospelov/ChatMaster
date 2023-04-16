@@ -9,6 +9,8 @@ public class GameDealer : GameField
     void Start()
     {
         
+        var it = Instantiate(itemCompanion, correspondenceField);
+        it.SetMessage("Привет игра, это я твой разрабочик");
     }
     
 }
