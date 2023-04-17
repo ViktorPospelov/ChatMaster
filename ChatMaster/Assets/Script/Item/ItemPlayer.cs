@@ -10,7 +10,10 @@ public class ItemPlayer : ItemBase
     [SerializeField] private Image avatar;
     [SerializeField] private GameObject messageObject;
     
-    
+    public void SetMessage(string masege)
+    {
+        message.text = masege;
+    }
 
    
 }

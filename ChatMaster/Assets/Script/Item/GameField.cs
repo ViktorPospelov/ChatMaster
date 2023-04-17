@@ -30,16 +30,16 @@ public abstract class GameField : MonoBehaviour
         switch (item)
         {
             case Answer answer:
-                Instantiate(itemAnswer, selectBox);
-                ProcessObject(answer);
+                var insertAnswer = Instantiate(itemAnswer, selectBox);
+                ProcessObject(answer, insertAnswer);
                 break;
             case Player player:
-                Instantiate(itemPlayer, correspondenceField);
-                ProcessObject(player);
+                var insertPlayer = Instantiate(itemPlayer, correspondenceField);
+                ProcessObject(player, insertPlayer);
                 break;
             case Companion companion:
-                Instantiate(itemCompanion, correspondenceField);
-                ProcessObject(companion);
+                var insertCompanion = Instantiate(itemCompanion, correspondenceField);
+                ProcessObject(companion, insertCompanion);
                 break;
             default:
                 throw new Exception("GameField: PutIntoPlay: ItemBase error cast");
@@ -53,23 +53,23 @@ public abstract class GameField : MonoBehaviour
                (message.Length * Constant.DelayTolerances.ReadingOneLetter);
     }
 
-    protected void ProcessObject(Answer item)
+    protected void ProcessObject(Answer item, ItemAnswers insert)
     {
     }
 
-    protected void ProcessObject(Player item)
+    protected void ProcessObject(Player item, ItemPlayer insert)
     {
     }
 
-    protected void ProcessObject(Companion item)
+    protected void ProcessObject(Companion item, ItemCompanion insert)
     {
+        insert.SetMessage(item.Message);
     }
 
     protected void PhrasesConvector(Phrases phrases)
     {
         foreach (var companion in phrases.companionPhrases)
         {
-            
         }
     }
 }
