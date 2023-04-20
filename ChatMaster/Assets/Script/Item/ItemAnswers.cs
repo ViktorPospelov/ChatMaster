@@ -16,12 +16,9 @@ public class ItemAnswers : ItemBase
 
 
     private AnswerState _thisState;
-    
 
-    private void Start()
+    public void SetAnswer(string message)
     {
-        
-      
+        SetMessage(message);
     }
-
 }

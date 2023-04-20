@@ -9,10 +9,10 @@ public class ItemPlayer : ItemBase
 {
     [SerializeField] private Image avatar;
     [SerializeField] private GameObject messageObject;
-    
-    public void SetMessage(string masege)
+
+    public override void SetMessage(string message)
     {
-        message.text = masege;
+        base.SetMessage(message);
     }
 
    

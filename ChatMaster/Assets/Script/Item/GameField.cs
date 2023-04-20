@@ -59,11 +59,13 @@ public abstract class GameField : MonoBehaviour
 
     protected void ProcessObject(Answer item, ItemAnswers insert)
     {
+        insert.SetAnswer(item.Message);
         _lastItem = insert;
     }
 
     protected void ProcessObject(Player item, ItemPlayer insert)
     {
+        insert.SetMessage(item.Message);
         _lastItem = insert;
     }
 

@@ -12,9 +12,9 @@ public class ItemCompanion : ItemBase
 {
     [SerializeField] private Image _avatar;
     [SerializeField] private GameObject _writes;
-    
+
     [SerializeField] private GameObject _messageObject;
-   
+
     private const float _maxTimeWrite = 1.2f;
     private const float _minTimeWrite = 0.6f;
 
@@ -26,12 +26,12 @@ public class ItemCompanion : ItemBase
         yield return new WaitForSeconds(delay);
         _writes.SetActive(false);
         _messageObject.SetActive(true);
-       message.text = mess;
-      GameField.moveNext?.Invoke();
+        message.text = mess;
+        GameField.moveNext?.Invoke();
     }
 
-    public void SetMessage(string masege,float delay)
+    public void SetMessage(string messege, float delay)
     {
-        StartCoroutine(StartAnimation(masege,delay));
+        StartCoroutine(StartAnimation(messege, delay));
     }
 }

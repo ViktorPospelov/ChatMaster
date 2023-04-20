@@ -7,5 +7,11 @@ public class ItemBase : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI message;
 
-    public ItemState itemState;
+    
+    
+    public virtual void SetMessage(string message)
+    {
+        this.message.text = message;
+        GameField.moveNext?.Invoke();
+    }
 }
