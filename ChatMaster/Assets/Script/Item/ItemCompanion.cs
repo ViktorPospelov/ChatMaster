@@ -18,30 +18,20 @@ public class ItemCompanion : ItemBase
     private const float _maxTimeWrite = 1.2f;
     private const float _minTimeWrite = 0.6f;
 
-    // private void Start()
-    // {
-    //     SetMessage("Привет игра, это я твой разрабочик");
-    // }
 
-    private IEnumerator StartAnimation(string mess)
+    private IEnumerator StartAnimation(string mess, float delay)
     {
-        float timeWrite = _minTimeWrite;
-        timeWrite = Random.Range(_minTimeWrite,_maxTimeWrite) + (mess.Length*_minTimeWrite/15f);
-        Debug.Log(timeWrite);
         _messageObject.SetActive(false);
         _writes.SetActive(true);
-        yield return new WaitForSeconds(timeWrite);
+        yield return new WaitForSeconds(delay);
         _writes.SetActive(false);
         _messageObject.SetActive(true);
        message.text = mess;
-        
-       // GameField.NormalizePosition(this.gameObject);
-     
-        
+      GameField.moveNext?.Invoke();
     }
 
-    public void SetMessage(string masege)
+    public void SetMessage(string masege,float delay)
     {
-        StartCoroutine(StartAnimation(masege));
+        StartCoroutine(StartAnimation(masege,delay));
     }
 }
