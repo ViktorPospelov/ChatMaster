@@ -1424,8 +1424,7 @@ MonoBehaviour:
   itemAnswer: {fileID: 4474923413207860652, guid: 341fc239333189244bae2ab2e1d58317, type: 3}
   correspondenceField: {fileID: 402220552}
   selectBox: {fileID: 504923864}
-  lvLs:
-  - {fileID: 11400000, guid: 9acbc57e1a104ea4ab927f5ecf79817d, type: 2}
+  lvLs: {fileID: 11400000, guid: 9acbc57e1a104ea4ab927f5ecf79817d, type: 2}
 --- !u!1 &838581466
 GameObject:
   m_ObjectHideFlags: 0

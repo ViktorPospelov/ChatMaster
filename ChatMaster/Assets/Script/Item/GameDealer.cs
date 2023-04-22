@@ -7,17 +7,15 @@ using UnityEngine;
 
 public class GameDealer : GameField
 {
+    
+    [SerializeField] protected LvL lvLs; // Врменно для запуска игры, потом получать в старт поля
     void Start()
     {
-        Ttest("Привет игра, это я твой разрабочик");
-        Ttest(" Привет игра, это я твой разрабочик Привет игра, это я твой разрабочик Привет игра, это я твой разрабочик Привет игра, это я твой разрабочик Привет игра, это я твой разрабочик");
-        Ttest("Привет игра, это я твой разрабочик");
-        Ttest("Привет игра, это я твой разрабочик");
-        Ttest("Привет игра, это я твой разрабочик");
-
-
-        PutIntoPlay(ToTheCorrespondenceField.Dequeue());
         moveNext += MoveNext;
+
+        PhrasesConvector(lvLs, 0);
+        PutIntoPlay(ToTheCorrespondenceField.Dequeue());
+        
     }
 
     private void Ttest(string m)

@@ -18,10 +18,6 @@ public abstract class GameField : MonoBehaviour
     [SerializeField] protected Transform correspondenceField;
     [SerializeField] protected Transform selectBox;
 
-
-    [SerializeField] protected LvL[] lvLs; // Врменно для запуска игры, потом получать в старт поля
-
-
     protected Queue<BaseGameItem> ToTheCorrespondenceField = new Queue<BaseGameItem>();
     private ItemBase _lastItem;
     public static Action moveNext;
@@ -77,21 +73,37 @@ public abstract class GameField : MonoBehaviour
 
     protected void MoveNext()
     {
-        _lastItem.transform.localScale += new Vector3(0, 0.001f, 0);
+        if (_lastItem is not null) _lastItem.transform.localScale += new Vector3(0, 0.001f, 0);
         if (ToTheCorrespondenceField.Count != 0)
-            StartCoroutine(DelayNext());
+        {
+            StartCoroutine(DelayNext(ToTheCorrespondenceField.Peek() is Answer));
+        }
     }
 
-    private IEnumerator DelayNext()
+    private IEnumerator DelayNext(bool isAnswer)
     {
-        yield return new WaitForSeconds(GetDelay("MoveNext"));
+        if (!isAnswer) yield return new WaitForSeconds(GetDelay("MoveNext"));
         PutIntoPlay(ToTheCorrespondenceField.Dequeue());
     }
 
-    protected void PhrasesConvector(Phrases phrases)
+    protected void PhrasesConvector(LvL lvl, int index)
     {
-        foreach (var companion in phrases.companionPhrases)
+        var phrases = lvl.CompanionPhrases[index];
+        foreach (var companionPhrases in phrases.companionPhrases)
         {
+            var item = new Companion();
+            item.Message = companionPhrases;
+            ToTheCorrespondenceField.Enqueue(item);
+        }
+
+        for (var i = 0; i < phrases.playerPhrases.Length; i++)
+        {
+            var item = new Answer();
+            item.Message = phrases.playerPhrases[i];
+            item.PhraseJumpIndex = phrases.phraseJumpIndex[i];
+            item.PrisePlayerPhrases = phrases.prisePlayerPhrases[i];
+            item.ColorPlayerPhrases = phrases.colorPlayerPhrases[i];
+            ToTheCorrespondenceField.Enqueue(item);
         }
     }
 }
