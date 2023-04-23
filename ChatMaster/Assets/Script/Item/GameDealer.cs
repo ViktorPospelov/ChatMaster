@@ -8,11 +8,12 @@ using UnityEngine;
 public class GameDealer : GameField
 {
     
-    [SerializeField] protected LvL lvLs; // Врменно для запуска игры, потом получать в старт поля
+    protected LvL lvLs;
     
     public static Action<Answer> ClickAnswer;
-    void Start()
+    public void StartGame(LvL lvls)
     {
+        lvLs = lvls;
         moveNext += MoveNext;
         endGame += EndGame;
         ClickAnswer += NextJumpIndex;
