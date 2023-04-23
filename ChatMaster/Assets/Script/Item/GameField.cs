@@ -21,6 +21,7 @@ public abstract class GameField : MonoBehaviour
     protected Queue<BaseGameItem> ToTheCorrespondenceField = new Queue<BaseGameItem>();
     private ItemBase _lastItem;
     public static Action moveNext;
+    public static Action<bool> endGame;
 
     protected void PutIntoPlay(BaseGameItem item)
     {
@@ -88,6 +89,12 @@ public abstract class GameField : MonoBehaviour
 
     protected void PhrasesConvector(LvL lvl, int index)
     {
+        if (index > 55)
+        {
+            EndGame(index == 999);
+            return;
+        }
+        
         var phrases = lvl.CompanionPhrases[index];
         foreach (var companionPhrases in phrases.companionPhrases)
         {
@@ -109,6 +116,7 @@ public abstract class GameField : MonoBehaviour
 
     protected void PlayerConvector(Answer answer)
     {
+        
         var item = new Player();
         item.Message = answer.Message;
         ToTheCorrespondenceField.Enqueue(item);
@@ -121,8 +129,10 @@ public abstract class GameField : MonoBehaviour
         {
             Destroy(it.gameObject);
         }
+    }
 
-        
-
+    protected void EndGame(bool win)
+    {
+        Debug.Log($"Победил:{win}");
     }
 }

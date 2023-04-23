@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using Script.Item.FieldObjects;
+using Unity.VisualScripting;
 
 
 public class ItemAnswers : ItemBase
@@ -21,6 +22,15 @@ public class ItemAnswers : ItemBase
 
     public void SetAnswer(Answer item)
     {
+        if (item.PhraseJumpIndex > 55)
+        {
+            if (item.Message == "")
+            {
+                GameField.endGame?.Invoke(item.PhraseJumpIndex==999);
+                Destroy(this.gameObject);
+                return;
+            }
+        }
         _thisState = (AnswerState)item.ColorPlayerPhrases;
         SetMessage(item.Message);
         button.onClick.AddListener(() =>

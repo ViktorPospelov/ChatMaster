@@ -14,6 +14,7 @@ public class GameDealer : GameField
     void Start()
     {
         moveNext += MoveNext;
+        endGame += EndGame;
         ClickAnswer += NextJumpIndex;
 
         PhrasesConvector(lvLs, 0);
