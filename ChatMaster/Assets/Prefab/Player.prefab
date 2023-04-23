@@ -253,9 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81eaf605254140b59b70c8403a2af4d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _avatar: {fileID: 2648763810061166798}
-  _message: {fileID: 5014533255916284828}
-  _messageObject: {fileID: 8561644394519912408}
+  message: {fileID: 5014533255916284828}
+  avatar: {fileID: 2648763810061166798}
+  messageObject: {fileID: 8561644394519912408}
 --- !u!1 &5142553094919429452
 GameObject:
   m_ObjectHideFlags: 0

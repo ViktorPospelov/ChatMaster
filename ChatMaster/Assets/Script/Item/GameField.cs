@@ -55,7 +55,7 @@ public abstract class GameField : MonoBehaviour
 
     protected void ProcessObject(Answer item, ItemAnswers insert)
     {
-        insert.SetAnswer(item.Message);
+        insert.SetAnswer(item);
         _lastItem = insert;
     }
 
@@ -76,7 +76,7 @@ public abstract class GameField : MonoBehaviour
         if (_lastItem is not null) _lastItem.transform.localScale += new Vector3(0, 0.001f, 0);
         if (ToTheCorrespondenceField.Count != 0)
         {
-            StartCoroutine(DelayNext(ToTheCorrespondenceField.Peek() is Answer));
+            StartCoroutine(DelayNext(ToTheCorrespondenceField.Peek() is Answer||ToTheCorrespondenceField.Peek() is Player));
         }
     }
 
@@ -105,5 +105,24 @@ public abstract class GameField : MonoBehaviour
             item.ColorPlayerPhrases = phrases.colorPlayerPhrases[i];
             ToTheCorrespondenceField.Enqueue(item);
         }
+    }
+
+    protected void PlayerConvector(Answer answer)
+    {
+        var item = new Player();
+        item.Message = answer.Message;
+        ToTheCorrespondenceField.Enqueue(item);
+    }
+    
+
+    protected void ClearSelectBox()
+    {
+        foreach (Transform it in selectBox.transform)
+        {
+            Destroy(it.gameObject);
+        }
+
+        
+
     }
 }
