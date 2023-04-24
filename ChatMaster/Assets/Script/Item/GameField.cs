@@ -133,6 +133,6 @@ public abstract class GameField : MonoBehaviour
 
     protected void EndGame(bool win)
     {
-        Debug.Log($"Победил:{win}");
+       /// Debug.Log($"Победил:{win}");
     }
 }
