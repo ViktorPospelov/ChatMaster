@@ -12,10 +12,22 @@ public class MainMenuForm : MonoBehaviour
     [SerializeField] private GameDealer gameDealer;
     private void Start()
     {
+        SetLvL();
+    }
+
+    private void SetLvL()
+    {
         foreach (var lvl in lvLs)
         {
             var it = Instantiate(LVLItem, LvLList);
-            it.SetLvl(lvl,this);
+            it.SetLvl(lvl, this);
+        }
+    }
+    private void ClearLvL()
+    {
+        foreach (Transform lvl in LvLList.transform)
+        {
+            Destroy(lvl.gameObject);
         }
     }
 
@@ -23,5 +35,6 @@ public class MainMenuForm : MonoBehaviour
     {
         gameForm.SetActive(true);
         gameDealer.StartGame(lvl);
+        ClearLvL();
     }
 }
