@@ -7,6 +7,8 @@ public class ItemCompanion : ItemBase
 
     [SerializeField] private GameObject _messageObject;
 
+    [SerializeField] private AvatarForm _avatar;
+
     private IEnumerator StartAnimation(string mess, float delay)
     {
         _messageObject.SetActive(false);
@@ -18,8 +20,9 @@ public class ItemCompanion : ItemBase
         GameField.moveNext?.Invoke();
     }
 
-    public void SetMessage(string messege, float delay)
+    public void SetMessage(string messege, float delay, string[] name)
     {
         StartCoroutine(StartAnimation(messege, delay));
+        _avatar.SetAvatar(name);
     }
 }

@@ -8,17 +8,17 @@ using UnityEngine;
 public class GameDealer : GameField
 {
     
-    protected LvL lvLs;
+    protected LvL lvL;
     
     public static Action<Answer> ClickAnswer;
     public void StartGame(LvL lvls)
     {
-        lvLs = lvls;
+        lvL = lvls;
         moveNext += MoveNext;
         endGame += EndGame;
         ClickAnswer += NextJumpIndex;
 
-        PhrasesConvector(lvLs, 0);
+        PhrasesConvector(lvL, 0);
         PutIntoPlay(ToTheCorrespondenceField.Dequeue());
         
     }
@@ -27,7 +27,7 @@ public class GameDealer : GameField
     {
         ClearSelectBox();
         PlayerConvector(index);
-        PhrasesConvector(lvLs, index.PhraseJumpIndex);
+        PhrasesConvector(lvL, index.PhraseJumpIndex);
         MoveNext();
     }
 

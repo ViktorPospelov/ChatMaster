@@ -68,7 +68,7 @@ public abstract class GameField : MonoBehaviour
 
     protected void ProcessObject(Companion item, ItemCompanion insert)
     {
-        insert.SetMessage(item.Message, GetDelay(item.Message));
+        insert.SetMessage(item.Message, GetDelay(item.Message), item.Name);
         _lastItem = insert;
     }
 
@@ -100,6 +100,7 @@ public abstract class GameField : MonoBehaviour
         {
             var item = new Companion();
             item.Message = companionPhrases;
+            item.Name = lvl.CompanionName;
             ToTheCorrespondenceField.Enqueue(item);
         }
 

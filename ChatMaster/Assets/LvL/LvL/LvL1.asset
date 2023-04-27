@@ -19,7 +19,7 @@ MonoBehaviour:
   - Polina
   CompanionName:
   - "\u041F\u0430\u043F\u0430"
-  - Dady
+  - Max
   CompanionPhrases:
   - {fileID: 11400000, guid: 251a34f88a3001348b19aaa2714d2755, type: 2}
   - {fileID: 11400000, guid: a6ff5810c78722847946db783fcc1ac4, type: 2}
