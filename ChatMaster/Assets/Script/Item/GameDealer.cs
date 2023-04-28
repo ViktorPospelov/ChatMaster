@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using Script.Item.FieldObjects;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameDealer : GameField
 {
-    
+    [SerializeField] private LevelHeading _HeadingLvl;
+
     protected LvL lvL;
-    
+
     public static Action<Answer> ClickAnswer;
+
     public void StartGame(LvL lvl)
     {
         lvL = lvl;
@@ -18,10 +21,17 @@ public class GameDealer : GameField
         endGame += EndGame;
         ClickAnswer += NextJumpIndex;
         SetAvatarToLvl(lvl);
+        SetHeading(lvl);
 
         PhrasesConvector(lvL, 0);
         PutIntoPlay(ToTheCorrespondenceField.Dequeue());
-        
+
+    }
+
+    private void SetHeading(LvL lvl)
+    {
+        _HeadingLvl.gameObject.SetActive(true);
+        _HeadingLvl.StartLevelHeading(lvl.taskAtTheLevel);
     }
 
     private void SetAvatarToLvl(LvL lvl)
@@ -36,13 +46,5 @@ public class GameDealer : GameField
         PlayerConvector(index);
         PhrasesConvector(lvL, index.PhraseJumpIndex);
         MoveNext();
-    }
-
-    private void Ttest(string m)
-    {
-        Companion it;
-        it = new Companion();
-        it.Message = m;
-        ToTheCorrespondenceField.Enqueue(it);
     }
 }

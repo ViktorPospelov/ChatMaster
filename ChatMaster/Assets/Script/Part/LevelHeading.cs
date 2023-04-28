@@ -1,12 +1,24 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelHeading : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _formWinPopap;
-    void Start()
+    [SerializeField] private Button close;
+
+    private void Start()
     {
-        _formWinPopap.text = "Привет, я чат игра";
+        close.onClick.AddListener(() =>
+        {
+            close.onClick.RemoveAllListeners();
+            this.gameObject.SetActive(false);
+        });
     }
-    
+
+    public void StartLevelHeading(string message)
+    {
+        _formWinPopap.text = message;
+    }
 }

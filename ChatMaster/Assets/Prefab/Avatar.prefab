@@ -888,7 +888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 507bcd3b5b0afe8438cf76fd9195f668, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cee8310b80f050a449012ab0166b20d1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1214,7 +1214,7 @@ GameObject:
   - component: {fileID: 5692331230097215887}
   - component: {fileID: 1505219893818739223}
   m_Layer: 0
-  m_Name: Polina
+  m_Name: Polina2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1366,7 +1366,7 @@ GameObject:
   - component: {fileID: 16623845823854701}
   - component: {fileID: 8841116149741314111}
   m_Layer: 0
-  m_Name: Image (12)
+  m_Name: Polina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
