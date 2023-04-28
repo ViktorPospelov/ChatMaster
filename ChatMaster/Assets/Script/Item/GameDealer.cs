@@ -11,16 +11,23 @@ public class GameDealer : GameField
     protected LvL lvL;
     
     public static Action<Answer> ClickAnswer;
-    public void StartGame(LvL lvls)
+    public void StartGame(LvL lvl)
     {
-        lvL = lvls;
+        lvL = lvl;
         moveNext += MoveNext;
         endGame += EndGame;
         ClickAnswer += NextJumpIndex;
+        SetAvatarToLvl(lvl);
 
         PhrasesConvector(lvL, 0);
         PutIntoPlay(ToTheCorrespondenceField.Dequeue());
         
+    }
+
+    private void SetAvatarToLvl(LvL lvl)
+    {
+        _avatar.SetAvatar(lvl.CompanionName);
+        _companionName.text = lvl.CompanionName[0];
     }
 
     private void NextJumpIndex(Answer index)

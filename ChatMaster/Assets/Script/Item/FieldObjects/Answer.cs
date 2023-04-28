@@ -5,5 +5,7 @@
         public int PhraseJumpIndex { get; set; }
         public int PrisePlayerPhrases { get; set; }
         public int ColorPlayerPhrases { get; set; }
+        
+        public string[] Name { get; set; }
     }
 }

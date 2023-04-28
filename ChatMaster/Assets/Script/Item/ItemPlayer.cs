@@ -7,12 +7,13 @@ using Image = UnityEngine.UI.Image;
 
 public class ItemPlayer : ItemBase
 {
-    [SerializeField] private Image avatar;
+    [SerializeField] private AvatarForm avatar;
     [SerializeField] private GameObject messageObject;
 
-    public override void SetMessage(string message)
+    public void SetPlayerMessage(string message, string[] name)
     {
         base.SetMessage(message);
+        avatar.SetAvatar(name);
     }
 
    

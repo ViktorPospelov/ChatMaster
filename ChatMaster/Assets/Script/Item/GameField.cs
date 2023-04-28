@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Script.Item.FieldObjects;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,6 +18,9 @@ public abstract class GameField : MonoBehaviour
     [SerializeField] protected ItemAnswers itemAnswer;
     [SerializeField] protected Transform correspondenceField;
     [SerializeField] protected Transform selectBox;
+
+    [SerializeField] protected AvatarForm _avatar;
+    [SerializeField] protected TextMeshProUGUI _companionName;
 
     protected Queue<BaseGameItem> ToTheCorrespondenceField = new Queue<BaseGameItem>();
     private ItemBase _lastItem;
@@ -62,7 +66,7 @@ public abstract class GameField : MonoBehaviour
 
     protected void ProcessObject(Player item, ItemPlayer insert)
     {
-        insert.SetMessage(item.Message);
+        insert.SetPlayerMessage(item.Message, item.Name);
         _lastItem = insert;
     }
 
@@ -111,6 +115,7 @@ public abstract class GameField : MonoBehaviour
             item.PhraseJumpIndex = phrases.phraseJumpIndex[i];
             item.PrisePlayerPhrases = phrases.prisePlayerPhrases[i];
             item.ColorPlayerPhrases = phrases.colorPlayerPhrases[i];
+            item.Name = lvl.PlayerName;
             ToTheCorrespondenceField.Enqueue(item);
         }
     }
@@ -120,6 +125,7 @@ public abstract class GameField : MonoBehaviour
         
         var item = new Player();
         item.Message = answer.Message;
+        item.Name = answer.Name;
         ToTheCorrespondenceField.Enqueue(item);
     }
     
