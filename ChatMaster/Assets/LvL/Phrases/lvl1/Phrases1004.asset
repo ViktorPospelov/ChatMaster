@@ -20,5 +20,5 @@ MonoBehaviour:
   playerPhrases:
   - 
   phraseJumpIndex: e6030000
-  prisePlayerPhrases: 
-  colorPlayerPhrases: 
+  prisePlayerPhrases: 00000000
+  colorPlayerPhrases: 00000000

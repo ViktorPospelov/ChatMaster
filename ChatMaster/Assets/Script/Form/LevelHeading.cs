@@ -1,4 +1,5 @@
 using System;
+using Script.Item.FieldObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,8 +16,13 @@ public class LevelHeading : MonoBehaviour
             close.onClick.RemoveAllListeners();
             this.gameObject.SetActive(false);
         });
+        GameDealer.ClickAnswer += Close;
     }
 
+    private void Close(Answer a)
+    {
+        this.gameObject.SetActive(false);
+    }
     public void StartLevelHeading(string message)
     {
         _formWinPopap.text = message;

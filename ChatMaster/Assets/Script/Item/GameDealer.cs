@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using Script.Item.FieldObjects;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GameDealer : GameField
 {
-    [SerializeField] private LevelHeading _HeadingLvl;
+    [SerializeField] private LevelHeading _headingLvl;
+    [SerializeField] private LevelHeading _endGame;
 
     protected LvL lvL;
 
@@ -30,8 +32,8 @@ public class GameDealer : GameField
 
     private void SetHeading(LvL lvl)
     {
-        _HeadingLvl.gameObject.SetActive(true);
-        _HeadingLvl.StartLevelHeading(lvl.taskAtTheLevel);
+        _headingLvl.gameObject.SetActive(true);
+        _headingLvl.StartLevelHeading(lvl.taskAtTheLevel);
     }
 
     private void SetAvatarToLvl(LvL lvl)
@@ -46,5 +48,18 @@ public class GameDealer : GameField
         PlayerConvector(index);
         PhrasesConvector(lvL, index.PhraseJumpIndex);
         MoveNext();
+    }
+
+    protected override void EndGame(bool win)
+    {
+        base.EndGame(win);
+        StartCoroutine(ShowEndGame(win));
+    }
+
+    private IEnumerator ShowEndGame(bool win)
+    {
+        yield return new WaitForSeconds(1.5f);
+        _endGame.gameObject.SetActive(true);
+       
     }
 }

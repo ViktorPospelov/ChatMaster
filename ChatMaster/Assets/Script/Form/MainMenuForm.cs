@@ -10,9 +10,16 @@ public class MainMenuForm : MonoBehaviour
     [SerializeField] protected LVLItem LVLItem;
     [SerializeField] private GameObject gameForm;
     [SerializeField] private GameDealer gameDealer;
+
+    protected LvL _currentLevel;
+        
+    public static Action<bool, int> EndGameFlow;
     private void Start()
     {
         SetLvL();
+        EndGameFlow += NextLevel;
+
+        _currentLevel = lvLs[0];
     }
 
     private void SetLvL()
@@ -31,8 +38,13 @@ public class MainMenuForm : MonoBehaviour
         }
     }
 
+    private void NextLevel(bool  nextLevel, int addCoin)
+    {
+        gameDealer.StartGame(_currentLevel);
+    }
     public void StarLvl(LvL lvl)
     {
+        _currentLevel = lvl;
         gameForm.SetActive(true);
         gameDealer.StartGame(lvl);
         ClearLvL();

@@ -138,8 +138,8 @@ public abstract class GameField : MonoBehaviour
         }
     }
 
-    protected void EndGame(bool win)
+    protected virtual void EndGame(bool win)
     {
-       /// Debug.Log($"Победил:{win}");
+   
     }
 }
