@@ -48,6 +48,14 @@ public abstract class GameField : MonoBehaviour
         }
     }
 
+    protected void ClearCorrespondenceField()
+    {
+        foreach (Transform it in correspondenceField)
+        {
+            Destroy(it.gameObject);
+        }
+    }
+
     protected float GetDelay(string message)
     {
         if (message == "MoveNext")

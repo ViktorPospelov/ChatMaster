@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class GameDealer : GameField
 {
     [SerializeField] private LevelHeading _headingLvl;
-    [SerializeField] private LevelHeading _endGame;
+    [SerializeField] private EndGamePopop _endGame;
 
     protected LvL lvL;
 
@@ -18,7 +18,11 @@ public class GameDealer : GameField
 
     public void StartGame(LvL lvl)
     {
+        ClearCorrespondenceField();
         lvL = lvl;
+        moveNext -= MoveNext;
+        endGame -= EndGame;
+        ClickAnswer -= NextJumpIndex;
         moveNext += MoveNext;
         endGame += EndGame;
         ClickAnswer += NextJumpIndex;
@@ -59,7 +63,13 @@ public class GameDealer : GameField
     private IEnumerator ShowEndGame(bool win)
     {
         yield return new WaitForSeconds(1.5f);
-        _endGame.gameObject.SetActive(true);
-       
+        if(win)
+        {
+            _endGame.gameObject.SetActive(true);
+        }
+        else
+        {
+            _headingLvl.gameObject.SetActive(true);
+        }
     }
 }
