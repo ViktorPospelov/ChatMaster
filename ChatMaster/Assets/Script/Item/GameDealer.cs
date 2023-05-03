@@ -63,13 +63,8 @@ public class GameDealer : GameField
     private IEnumerator ShowEndGame(bool win)
     {
         yield return new WaitForSeconds(1.5f);
-        if(win)
-        {
-            _endGame.gameObject.SetActive(true);
-        }
-        else
-        {
-            _headingLvl.gameObject.SetActive(true);
-        }
+        _endGame.gameObject.SetActive(true);
+        _endGame.SetGameState(win);
+        
     }
 }
