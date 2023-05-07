@@ -3,6 +3,7 @@ using Script.Item.FieldObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class EndGamePopop : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class EndGamePopop : MonoBehaviour
        });
        _addCoin.onClick.AddListener(() =>
        {
-           // начать показ рекламы
+           YandexGame.RewVideoShow(20);
            MainMenuForm.EndGameFlow?.Invoke(true,StandartRevard*2); // завершить показ рекламы
            gameObject.SetActive(false); // завершить показ рекламы
            RemoveListener(); // завершить показ рекламы
