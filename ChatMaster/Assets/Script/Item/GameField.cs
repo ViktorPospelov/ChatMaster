@@ -23,7 +23,7 @@ public abstract class GameField : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _companionName;
 
     protected Queue<BaseGameItem> ToTheCorrespondenceField = new Queue<BaseGameItem>();
-    private ItemBase _lastItem;
+    protected ItemBase _lastItem;
     public static Action moveNext;
     public static Action<bool> endGame;
 
@@ -86,10 +86,11 @@ public abstract class GameField : MonoBehaviour
 
     protected void MoveNext()
     {
-        if (_lastItem is not null) _lastItem.transform.localScale += new Vector3(0, 0.001f, 0);
+        if (!_lastItem.IsUnityNull()) _lastItem.transform.localScale += new Vector3(0, 0.001f, 0);
         if (ToTheCorrespondenceField.Count != 0)
         {
-            StartCoroutine(DelayNext(ToTheCorrespondenceField.Peek() is Answer||ToTheCorrespondenceField.Peek() is Player));
+            StartCoroutine(DelayNext(ToTheCorrespondenceField.Peek() is Answer ||
+                                     ToTheCorrespondenceField.Peek() is Player));
         }
     }
 
@@ -106,7 +107,7 @@ public abstract class GameField : MonoBehaviour
             EndGame(index == 999);
             return;
         }
-        
+
         var phrases = lvl.CompanionPhrases[index];
         foreach (var companionPhrases in phrases.companionPhrases)
         {
@@ -130,13 +131,12 @@ public abstract class GameField : MonoBehaviour
 
     protected void PlayerConvector(Answer answer)
     {
-        
         var item = new Player();
         item.Message = answer.Message;
         item.Name = answer.Name;
         ToTheCorrespondenceField.Enqueue(item);
     }
-    
+
 
     protected void ClearSelectBox()
     {
@@ -148,6 +148,5 @@ public abstract class GameField : MonoBehaviour
 
     protected virtual void EndGame(bool win)
     {
-   
     }
 }

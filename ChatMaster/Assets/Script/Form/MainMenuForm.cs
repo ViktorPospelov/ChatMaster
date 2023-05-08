@@ -12,14 +12,18 @@ public class MainMenuForm : MonoBehaviour
     [SerializeField] private GameDealer gameDealer;
 
     protected LvL _currentLevel;
-        
-    public static Action<bool, int> EndGameFlow;
+    protected int _passedLevel = 0;
+
+    private const int OnTheMenu = 998;
+
+    public static Action<bool, int?> EndGameFlow;
+
     private void Start()
     {
         SetLvL();
         EndGameFlow += NextLevel;
-
-        _currentLevel = lvLs[0];
+        _passedLevel = 0;
+        _currentLevel = lvLs[_passedLevel];
     }
 
     private void SetLvL()
@@ -30,6 +34,7 @@ public class MainMenuForm : MonoBehaviour
             it.SetLvl(lvl, this);
         }
     }
+
     private void ClearLvL()
     {
         foreach (Transform lvl in LvLList.transform)
@@ -38,15 +43,35 @@ public class MainMenuForm : MonoBehaviour
         }
     }
 
-    private void NextLevel(bool  nextLevel, int addCoin)
+    private void NextLevel(bool nextLevel, int? addCoin)
     {
+        if (_passedLevel + 1 == lvLs.Length)
+        {
+            Debug.Log("Всё прошел красавчик");
+            gameForm.SetActive(false);
+            return;
+        }
+
+        if (addCoin == OnTheMenu)
+        {
+            gameForm.SetActive(false);
+            return;
+        }
+
+        if (nextLevel)
+        {
+            _passedLevel++;
+            _currentLevel = lvLs[_passedLevel];
+        }
         gameDealer.StartGame(_currentLevel);
     }
+
     public void StarLvl(LvL lvl)
     {
+        ClearLvL();
         _currentLevel = lvl;
         gameForm.SetActive(true);
         gameDealer.StartGame(lvl);
-        ClearLvL();
+        SetLvL();
     }
 }

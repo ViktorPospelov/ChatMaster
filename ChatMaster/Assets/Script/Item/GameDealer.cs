@@ -11,21 +11,31 @@ public class GameDealer : GameField
 {
     [SerializeField] private LevelHeading _headingLvl;
     [SerializeField] private EndGamePopop _endGame;
+    [SerializeField] private Button _toMeButton;
 
     protected LvL lvL;
 
     public static Action<Answer> ClickAnswer;
 
-    public void StartGame(LvL lvl)
+    private void Awake()
     {
-        ClearCorrespondenceField();
-        lvL = lvl;
-        moveNext -= MoveNext;
-        endGame -= EndGame;
-        ClickAnswer -= NextJumpIndex;
         moveNext += MoveNext;
         endGame += EndGame;
         ClickAnswer += NextJumpIndex;
+        _toMeButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+            ClearCorrespondenceField();
+            ClearSelectBox();
+        });
+    }
+
+    public void StartGame(LvL lvl)
+    {
+        ClearSelectBox();
+        ClearCorrespondenceField();
+        lvL = lvl;
+       
         SetAvatarToLvl(lvl);
         SetHeading(lvl);
 
