@@ -30,7 +30,7 @@ public class MainMenuForm : MonoBehaviour
         _currentLevel = lvLs[_passedLevel-1];
         goGame.onClick.AddListener(() =>
         { 
-            StarLvl(_currentLevel);
+            StarLvl(lvLs[YandexGame.savesData.progressLvl+1]);
         });
         YandexGame.GetDataEvent += UbdateSaves;
         

@@ -13,6 +13,7 @@ public class EndGamePopop : MonoBehaviour
     [SerializeField] private Button _again;
     [SerializeField] private Button _menu;
     [SerializeField] private ParticleSystem _showFireworks;
+    [SerializeField] private GameObject coin;
 
 
     private const int StandartRevard = 10;
