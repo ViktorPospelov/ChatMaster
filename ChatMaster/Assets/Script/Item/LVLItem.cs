@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class LVLItem : MonoBehaviour
 {
@@ -19,18 +20,28 @@ public class LVLItem : MonoBehaviour
         lvlGo.SetActive(false);
     }
 
-    public void SetLvl(LvL lvl,MainMenuForm mmf)
+    public void SetLvl(LvL lvl, MainMenuForm mmf)
     {
         Clear();
         LvlName.text = $"{lvl.lvlNumber} {lvl.taskAtTheLevel}";
         beginLvl.onClick.AddListener(() =>
         {
-            mmf.StarLvl(lvl);
+            if (lvl.lvlNumber <= YandexGame.savesData.progressLvl+1)
+            {
+                mmf.StarLvl(lvl);
+            }
         });
-    }
+        complete.SetActive(lvl.lvlNumber <= YandexGame.savesData.progressLvl);
+        lvlGo.SetActive(lvl.lvlNumber == YandexGame.savesData.progressLvl+1);
 
-    private void SetColorGray()
-    {
-        LvlName.color = Color.gray;
+        if (lvl.lvlNumber > YandexGame.savesData.progressLvl+1)
+        {
+            LvlName.color = Color.gray;
+        }
+        else
+        {
+            LvlName.color = Color.black;
+        }
     }
+    
 }

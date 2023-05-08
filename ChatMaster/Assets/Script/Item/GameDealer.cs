@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using YG;
 
 public class GameDealer : GameField
 {
@@ -17,6 +18,8 @@ public class GameDealer : GameField
 
     public static Action<Answer> ClickAnswer;
 
+    private const int OnTheMenu = 998;
+
     private void Awake()
     {
         moveNext += MoveNext;
@@ -24,9 +27,12 @@ public class GameDealer : GameField
         ClickAnswer += NextJumpIndex;
         _toMeButton.onClick.AddListener(() =>
         {
-            gameObject.SetActive(false);
+            MainMenuForm.EndGameFlow?.Invoke(false, OnTheMenu);
             ClearCorrespondenceField();
             ClearSelectBox();
+            ToTheCorrespondenceField.Clear();
+            _endGame.gameObject.SetActive(false);
+            _headingLvl.gameObject.SetActive(false);
         });
     }
 
@@ -35,13 +41,12 @@ public class GameDealer : GameField
         ClearSelectBox();
         ClearCorrespondenceField();
         lvL = lvl;
-       
+
         SetAvatarToLvl(lvl);
         SetHeading(lvl);
 
         PhrasesConvector(lvL, 0);
         PutIntoPlay(ToTheCorrespondenceField.Dequeue());
-
     }
 
     private void SetHeading(LvL lvl)
@@ -68,6 +73,11 @@ public class GameDealer : GameField
     {
         base.EndGame(win);
         StartCoroutine(ShowEndGame(win));
+        if (YandexGame.savesData.progressLvl <= lvL.lvlNumber)
+        {
+            YandexGame.savesData.progressLvl = lvL.lvlNumber;
+            YandexGame.SaveProgress();
+        }
     }
 
     private IEnumerator ShowEndGame(bool win)
@@ -75,6 +85,5 @@ public class GameDealer : GameField
         yield return new WaitForSeconds(1.5f);
         _endGame.gameObject.SetActive(true);
         _endGame.SetGameState(win);
-        
     }
 }

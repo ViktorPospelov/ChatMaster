@@ -19,9 +19,9 @@ public class EndGamePopop : MonoBehaviour
     private const int OnTheMenu = 998;
 
     private bool _endGame;
+
     public void SetGameState(bool win)
     {
-        RemoveListenerAndClose();
         _endGame = win;
         if (_endGame)
         {
@@ -46,6 +46,8 @@ public class EndGamePopop : MonoBehaviour
         {
             MainMenuForm.EndGameFlow?.Invoke(true, StandartRevard);
             RemoveListenerAndClose();
+            YandexGame.savesData.coin += StandartRevard;
+            YandexGame.SaveProgress();
         });
         _addCoin.onClick.AddListener(() => { YandexGame.RewVideoShow(StandartRevard * 2); });
         _again.onClick.AddListener(() =>
@@ -64,6 +66,8 @@ public class EndGamePopop : MonoBehaviour
     private void AfterTheAdv(int coin)
     {
         MainMenuForm.EndGameFlow?.Invoke(true, coin);
+        YandexGame.savesData.coin += coin;
+        YandexGame.SaveProgress();
 
         RemoveListenerAndClose();
     }
