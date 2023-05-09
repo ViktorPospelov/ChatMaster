@@ -38,6 +38,7 @@ public class EndGamePopop : MonoBehaviour
         _formWinPopap.text = _endGame ? "Победа!" : "Провалено!";
         _formWinPopap.color = _endGame ? Color.green : Color.red;
         StartForm();
+        coin.SetActive(_endGame);
     }
 
     private void StartForm()
