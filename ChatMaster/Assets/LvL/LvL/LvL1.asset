@@ -15,10 +15,10 @@ MonoBehaviour:
   lvlNumber: 1
   taskAtTheLevel: "\u041F\u0440\u0430\u043D\u043A\u0430\u043D\u0438 \u0431\u0440\u0430\u0442\u0430"
   PlayerName:
-  - "\u041F\u043E\u043B\u0438\u043D\u0430"
-  - Polina
+  - "\u0410\u0433\u0430\u0442\u0430"
+  - Agata
   CompanionName:
-  - "\u041C\u0430\u043A\u0441\u0438\u043C \u0411\u0440\u0430\u0442"
+  - "\u041C\u0430\u043A\u0441\u0438\u043C"
   - Max
   CompanionPhrases:
   - {fileID: 11400000, guid: 251a34f88a3001348b19aaa2714d2755, type: 2}

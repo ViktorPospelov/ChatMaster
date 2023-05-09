@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 4991757344913120019}
   - component: {fileID: 1182499031161101450}
   m_Layer: 0
-  m_Name: Image (3)
+  m_Name: Den
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 3976011496268214574}
   - component: {fileID: 4542111092058941816}
   m_Layer: 0
-  m_Name: Image (4)
+  m_Name: Malika
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 112572705447081524}
   - component: {fileID: 6657168379590893335}
   m_Layer: 0
-  m_Name: Image (5)
+  m_Name: An
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1062,7 +1062,7 @@ GameObject:
   - component: {fileID: 949292515582136848}
   - component: {fileID: 5911243711592603026}
   m_Layer: 0
-  m_Name: Image (10)
+  m_Name: Nikita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1366,7 +1366,7 @@ GameObject:
   - component: {fileID: 16623845823854701}
   - component: {fileID: 8841116149741314111}
   m_Layer: 0
-  m_Name: Polina
+  m_Name: Agata
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

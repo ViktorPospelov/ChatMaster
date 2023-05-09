@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -15,6 +14,8 @@ public class MainMenuForm : MonoBehaviour
     [SerializeField] private Button goGame;
     [SerializeField] private Text coin;
     [SerializeField] private Slider progress;
+    [SerializeField] private Button market;
+    [SerializeField] private GameObject marketForm;
 
     protected LvL _currentLevel;
     protected int _passedLevel = 1;
@@ -26,23 +27,39 @@ public class MainMenuForm : MonoBehaviour
     private void Start()
     {
         EndGameFlow += NextLevel;
-        
-        _currentLevel = lvLs[_passedLevel-1];
+
+        _currentLevel = lvLs[_passedLevel - 1];
         goGame.onClick.AddListener(() =>
-        { 
-            StarLvl(lvLs[YandexGame.savesData.progressLvl+1]);
+        {
+            if (YandexGame.savesData.progressLvl == lvLs.Length)
+            {
+                StarLvl(lvLs.Last());
+            }
+            else
+            {
+                StarLvl(lvLs[YandexGame.savesData.progressLvl]);
+            }
         });
+        market.onClick.AddListener(() => { marketForm.SetActive(true); });
         YandexGame.GetDataEvent += UbdateSaves;
-        
+        YandexGame.PurchaseSuccessEvent += ByCoin;
+    }
+
+    private void ByCoin(string id)
+    {
+        YandexGame.savesData.coin += Convert.ToInt32(id);
+        YandexGame.SaveProgress();
+        UbdateSaves();
     }
 
     private void UbdateSaves()
     {
         coin.text = YandexGame.savesData.coin.ToString();
-        if (LvLList.transform.childCount<=1)
+        if (LvLList.transform.childCount <= 1)
         {
             SetLvL();
         }
+
         _passedLevel = YandexGame.savesData.progressLvl;
         SetProgress();
     }
@@ -89,8 +106,9 @@ public class MainMenuForm : MonoBehaviour
         if (nextLevel)
         {
             _passedLevel++;
-            _currentLevel = lvLs[_passedLevel-1];
+            _currentLevel = lvLs[_passedLevel - 1];
         }
+
         gameDealer.StartGame(_currentLevel);
         ClearLvL();
         SetLvL();
