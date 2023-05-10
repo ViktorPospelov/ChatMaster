@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LvL2
   m_EditorClassIdentifier: 
   lvlNumber: 2
-  taskAtTheLevel: "\u041D\u0430\u0432\u0435\u0434\u0438 \u0441\u0443\u0435\u0442\u044B"
+  taskAtTheLevel: 
   PlayerName:
   - "\u0410\u043D\u043D\u0430"
   - An
