@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 7
   m_EditorClassIdentifier: 
   companionPhrases:
-  - "\u041C\u043D\u0435 \u0442\u043E\u0436\u0435 \u043D\u0435 \u0436\u0430\u043B\u043A\u043E"
-  - "\u0423 \u043C\u0435\u043D\u044F \u043F\u0440\u043E\u0441\u0442\u043E \u043D\u0435\u0442
-    \u0441\u0442\u043E\u043B\u044C\u043A\u043E \u0434\u0435\u043D\u0435\u0433"
+  - 
+  - 
   playerPhrases:
   - 
   phraseJumpIndex: e6030000
