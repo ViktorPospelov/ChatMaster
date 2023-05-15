@@ -16,6 +16,7 @@ public class MainMenuForm : MonoBehaviour
     [SerializeField] private Slider progress;
     [SerializeField] private Button market;
     [SerializeField] private GameObject marketForm;
+    public AgainPopop againPopop;
 
     protected LvL _currentLevel;
     protected int _passedLevel = 1;

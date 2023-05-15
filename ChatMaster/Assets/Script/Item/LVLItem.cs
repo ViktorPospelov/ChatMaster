@@ -13,6 +13,8 @@ public class LVLItem : MonoBehaviour
     [SerializeField] private GameObject lvlGo;
     [SerializeField] private Button beginLvl;
 
+    [SerializeField] private static AgainPopop againPopop;
+
     private void Clear()
     {
         LvlName.text = "";
@@ -24,11 +26,17 @@ public class LVLItem : MonoBehaviour
     {
         Clear();
         LvlName.text = $"{lvl.lvlNumber} {lvl.taskAtTheLevel}";
+        
+        mmf.againPopop.SetLvl(lvl,mmf);
         beginLvl.onClick.AddListener(() =>
         {
-            if (lvl.lvlNumber <= YandexGame.savesData.progressLvl+1)
+            if (lvl.lvlNumber == YandexGame.savesData.progressLvl+1)
             {
                 mmf.StarLvl(lvl);
+            }
+            else if (lvl.lvlNumber <= YandexGame.savesData.progressLvl)
+            {
+                mmf.againPopop.gameObject.SetActive(true);
             }
         });
         complete.SetActive(lvl.lvlNumber <= YandexGame.savesData.progressLvl);
