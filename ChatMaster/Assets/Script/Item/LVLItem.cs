@@ -13,21 +13,19 @@ public class LVLItem : MonoBehaviour
     [SerializeField] private GameObject lvlGo;
     [SerializeField] private Button beginLvl;
 
-    [SerializeField] private static AgainPopop againPopop;
-
     private void Clear()
     {
         LvlName.text = "";
         complete.SetActive(false);
         lvlGo.SetActive(false);
+        beginLvl.onClick.RemoveAllListeners();
     }
 
     public void SetLvl(LvL lvl, MainMenuForm mmf)
     {
         Clear();
         LvlName.text = $"{lvl.lvlNumber} {lvl.taskAtTheLevel}";
-
-        mmf.againPopop.SetLvl(lvl, mmf);
+        
         beginLvl.onClick.AddListener(() =>
         {
             if (lvl.lvlNumber == YandexGame.savesData.progressLvl + 1)
@@ -37,6 +35,7 @@ public class LVLItem : MonoBehaviour
             else if (lvl.lvlNumber <= YandexGame.savesData.progressLvl)
             {
                 mmf.againPopop.gameObject.SetActive(true);
+                mmf.againPopop.SetLvl(lvl, mmf);
             }
         });
 
