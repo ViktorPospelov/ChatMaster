@@ -19,7 +19,7 @@ public class AgainPopop : MonoBehaviour
             if (lvl.lvlNumber <= YandexGame.savesData.progressLvl+1)
             {
                 mmf.StarLvl(lvl);
-                YandexGame.savesData.coin -= 20;
+                YandexGame.savesData.coin += 20;
                 YandexGame.SaveProgress();
                 gameObject.SetActive(false);
             }
