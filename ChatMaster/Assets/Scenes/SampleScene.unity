@@ -8014,7 +8014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPlayer: {fileID: 2080252789120157065, guid: d96a3fc6803b72b4c9442b0afed39efd, type: 3}
   itemCompanion: {fileID: 5580662531658185307, guid: bee332546baecb048b7bb045b75d0ae1, type: 3}
-  itemAnswer: {fileID: 4474923413207860652, guid: 341fc239333189244bae2ab2e1d58317, type: 3}
+  itemAnswer: {fileID: 620836582879314711, guid: 341fc239333189244bae2ab2e1d58317, type: 3}
   correspondenceField: {fileID: 402220552}
   selectBox: {fileID: 504923864}
   _avatar: {fileID: 218141818}
