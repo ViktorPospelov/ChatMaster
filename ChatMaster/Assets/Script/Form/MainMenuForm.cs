@@ -70,7 +70,7 @@ public class MainMenuForm : MonoBehaviour
         {
             SetLvL();
         }
-
+       
         _passedLevel = YandexGame.savesData.progressLvl;
         SetProgress();
     }
