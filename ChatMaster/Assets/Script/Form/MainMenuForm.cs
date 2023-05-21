@@ -34,6 +34,10 @@ public class MainMenuForm : MonoBehaviour
             YandexGame.savesData.coin += 100;
             YandexGame.SaveProgress();
             coin.text = YandexGame.savesData.coin.ToString();
+            if (YandexGame.EnvironmentData.promptCanShow)
+            {
+                YandexGame.PromptShow();
+            }
         });
        
         
