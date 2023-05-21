@@ -80,6 +80,10 @@ public class GameDealer : GameField
     protected override void EndGame(bool win)
     {
         base.EndGame(win);
+        
+        if (win && YandexGame.EnvironmentData.reviewCanShow && lvL.lvlNumber > 10)
+            YandexGame.ReviewShow(true);
+
         StartCoroutine(ShowEndGame(win));
         if (YandexGame.savesData.progressLvl <= lvL.lvlNumber)
         {
