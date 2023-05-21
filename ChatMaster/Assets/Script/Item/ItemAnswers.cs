@@ -6,7 +6,6 @@ using YG;
 
 public class ItemAnswers : ItemBase
 {
-    
     [SerializeField] private GameObject red;
     [SerializeField] private GameObject green;
     [SerializeField] private Button button;
@@ -21,16 +20,16 @@ public class ItemAnswers : ItemBase
         {
             if (item.Message == "")
             {
-                GameField.endGame?.Invoke(item.PhraseJumpIndex==999);
+                GameField.endGame?.Invoke(item.PhraseJumpIndex == 999);
                 Destroy(this.gameObject);
                 return;
             }
         }
+
         _thisState = (AnswerState)item.ColorPlayerPhrases;
         SetMessage(item.Message);
         button.onClick.AddListener(() =>
         {
-            
             if (item.PrisePlayerPhrases > 0)
             {
                 if (YandexGame.savesData.coin > item.PrisePlayerPhrases)
@@ -39,15 +38,14 @@ public class ItemAnswers : ItemBase
                 }
                 else
                 {
-                    //Ответить что денях нет
-                    Debug.Log("Недостаточно денях");
+                    GameDealer.NoMoney?.Invoke();
                     return;
                 }
             }
-            
+
             GameDealer.ClickAnswer?.Invoke(item);
         });
-        
+
         SetColor();
 
         _thisNextIndex = item.PhraseJumpIndex;

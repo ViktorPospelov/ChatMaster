@@ -13,6 +13,7 @@ public class GameDealer : GameField
     [SerializeField] private LevelHeading _headingLvl;
     [SerializeField] private EndGamePopop _endGame;
     [SerializeField] private Button _toMeButton;
+    [SerializeField] private NoMoneyPopup _noMoney;
 
     protected LvL lvL;
 
@@ -53,8 +54,9 @@ public class GameDealer : GameField
 
     private void ShowNoMoney()
     {
-        
+        _noMoney.gameObject.SetActive(true);
     }
+
     private void SetHeading(LvL lvl)
     {
         _headingLvl.gameObject.SetActive(true);

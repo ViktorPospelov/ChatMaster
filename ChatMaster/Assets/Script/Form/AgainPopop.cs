@@ -10,6 +10,7 @@ public class AgainPopop : MonoBehaviour
     
     [SerializeField] private Button _again;
     [SerializeField] private Button _close;
+    [SerializeField] private NoMoneyPopup _noMoney;
   
 
 
@@ -22,10 +23,18 @@ public class AgainPopop : MonoBehaviour
         {
             if (lvl.lvlNumber <= YandexGame.savesData.progressLvl+1)
             {
-                mmf.StarLvl(lvl);
-                YandexGame.savesData.coin += 20;
-                YandexGame.SaveProgress();
-                gameObject.SetActive(false);
+                if (YandexGame.savesData.coin >= 20)
+                {
+                    mmf.StarLvl(lvl);
+                    YandexGame.savesData.coin -= 20;
+                    YandexGame.SaveProgress();
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    _noMoney.gameObject.SetActive(true);
+                    gameObject.SetActive(false);
+                }
             }
         });
         _close.onClick.AddListener(() =>
