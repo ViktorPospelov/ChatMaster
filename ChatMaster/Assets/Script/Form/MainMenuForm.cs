@@ -16,6 +16,7 @@ public class MainMenuForm : MonoBehaviour
     [SerializeField] private Slider progress;
     [SerializeField] private Button market;
     [SerializeField] private GameObject marketForm;
+    [SerializeField] private Button Add;
     
     public AgainPopop againPopop;
 
@@ -28,6 +29,14 @@ public class MainMenuForm : MonoBehaviour
 
     private void Start()
     {
+        Add.onClick.AddListener(() =>
+        {
+            YandexGame.savesData.coin += 100;
+            YandexGame.SaveProgress();
+            coin.text = YandexGame.savesData.coin.ToString();
+        });
+       
+        
         EndGameFlow += NextLevel;
 
         _currentLevel = lvLs[_passedLevel - 1];
