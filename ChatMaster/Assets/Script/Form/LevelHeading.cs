@@ -9,8 +9,11 @@ public class LevelHeading : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _formWinPopap;
     [SerializeField] private Button close;
 
-    private void Start()
+    private void StartLisen()
     {
+        close.onClick.RemoveAllListeners();
+        GameDealer.ClickAnswer -= Close;
+        
         close.onClick.AddListener(() =>
         {
             close.onClick.RemoveAllListeners();
@@ -26,5 +29,6 @@ public class LevelHeading : MonoBehaviour
     public void StartLevelHeading(string message)
     {
         _formWinPopap.text = message;
+        StartLisen();
     }
 }
