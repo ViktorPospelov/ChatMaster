@@ -17,11 +17,13 @@ public class GameDealer : GameField
     protected LvL lvL;
 
     public static Action<Answer> ClickAnswer;
+    public static Action NoMoney;
 
     private const int OnTheMenu = 998;
 
     private void Awake()
     {
+        NoMoney += ShowNoMoney;
         moveNext += MoveNext;
         endGame += EndGame;
         ClickAnswer += NextJumpIndex;
@@ -49,6 +51,10 @@ public class GameDealer : GameField
         PutIntoPlay(ToTheCorrespondenceField.Dequeue());
     }
 
+    private void ShowNoMoney()
+    {
+        
+    }
     private void SetHeading(LvL lvl)
     {
         _headingLvl.gameObject.SetActive(true);

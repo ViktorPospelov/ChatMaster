@@ -1,12 +1,7 @@
-using System;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 using Script.Item.FieldObjects;
-using Unity.VisualScripting;
+using YG;
 
 
 public class ItemAnswers : ItemBase
@@ -35,6 +30,21 @@ public class ItemAnswers : ItemBase
         SetMessage(item.Message);
         button.onClick.AddListener(() =>
         {
+            
+            if (item.PrisePlayerPhrases > 0)
+            {
+                if (YandexGame.savesData.coin > item.PrisePlayerPhrases)
+                {
+                    YandexGame.savesData.coin -= item.PrisePlayerPhrases;
+                }
+                else
+                {
+                    //Ответить что денях нет
+                    Debug.Log("Недостаточно денях");
+                    return;
+                }
+            }
+            
             GameDealer.ClickAnswer?.Invoke(item);
         });
         

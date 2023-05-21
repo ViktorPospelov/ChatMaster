@@ -17,6 +17,6 @@ MonoBehaviour:
   - "\u0427\u0442\u043E?"
   playerPhrases:
   - 
-  phraseJumpIndex: 02000000
-  prisePlayerPhrases: 00000000
-  colorPlayerPhrases: 00000000
+  phraseJumpIndex: 0200000002000000
+  prisePlayerPhrases: d0070000d0070000
+  colorPlayerPhrases: 0100000000000000

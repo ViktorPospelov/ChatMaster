@@ -9,12 +9,15 @@ public class AgainPopop : MonoBehaviour
 {
     
     [SerializeField] private Button _again;
+    [SerializeField] private Button _close;
   
 
 
     public void SetLvl(LvL lvl, MainMenuForm mmf)
     {
         _again.onClick.RemoveAllListeners();
+        _close.onClick.RemoveAllListeners();
+        
         _again.onClick.AddListener(() =>
         {
             if (lvl.lvlNumber <= YandexGame.savesData.progressLvl+1)
@@ -24,6 +27,11 @@ public class AgainPopop : MonoBehaviour
                 YandexGame.SaveProgress();
                 gameObject.SetActive(false);
             }
+        });
+        _close.onClick.AddListener(() =>
+        {
+            _again.onClick.RemoveAllListeners();
+            gameObject.SetActive(false);
         });
     }
     
