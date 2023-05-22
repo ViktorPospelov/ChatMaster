@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &29597269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7972,7 +7972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &827249462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8012,8 +8012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1be314d12a164b49b4cb793c52c87c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPlayer: {fileID: 2080252789120157065, guid: d96a3fc6803b72b4c9442b0afed39efd, type: 3}
-  itemCompanion: {fileID: 5580662531658185307, guid: bee332546baecb048b7bb045b75d0ae1, type: 3}
+  itemPlayer: {fileID: 1097831281323442828, guid: d96a3fc6803b72b4c9442b0afed39efd, type: 3}
+  itemCompanion: {fileID: 929774155096674548, guid: bee332546baecb048b7bb045b75d0ae1, type: 3}
   itemAnswer: {fileID: 620836582879314711, guid: 341fc239333189244bae2ab2e1d58317, type: 3}
   correspondenceField: {fileID: 402220552}
   selectBox: {fileID: 504923864}
