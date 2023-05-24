@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6389381372296904378}
   - component: {fileID: 3247809487431183141}
   m_Layer: 0
-  m_Name: Image (17)
+  m_Name: Dady
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1872453710231906670}
   - component: {fileID: 7690869393666695338}
   m_Layer: 0
-  m_Name: Image (14)
+  m_Name: Tanay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 1643333209772503893}
   - component: {fileID: 6761751583227358675}
   m_Layer: 0
-  m_Name: Image (6)
+  m_Name: Sofi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 8107346477701947189}
   - component: {fileID: 3059380693326106852}
   m_Layer: 0
-  m_Name: Image (11)
+  m_Name: Liza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 7497724585319876871}
   - component: {fileID: 8319036311814094201}
   m_Layer: 0
-  m_Name: Image (16)
+  m_Name: GPT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 112572705447081524}
   - component: {fileID: 6657168379590893335}
   m_Layer: 0
-  m_Name: An
+  m_Name: Anna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -834,7 +834,7 @@ GameObject:
   - component: {fileID: 4703177938684067362}
   - component: {fileID: 1733223922418183109}
   m_Layer: 0
-  m_Name: Fufu
+  m_Name: Olga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 7555139052400153167}
   - component: {fileID: 5361906976709122728}
   m_Layer: 0
-  m_Name: Image (8)
+  m_Name: Mark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 3448854978494871628}
   - component: {fileID: 6112881392752180560}
   m_Layer: 0
-  m_Name: Image (9)
+  m_Name: Sergey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 3779790810878393654}
   - component: {fileID: 4733944111997317072}
   m_Layer: 0
-  m_Name: Image (2)
+  m_Name: Andrey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1214,7 +1214,7 @@ GameObject:
   - component: {fileID: 5692331230097215887}
   - component: {fileID: 1505219893818739223}
   m_Layer: 0
-  m_Name: Polina2
+  m_Name: Polina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1290,7 +1290,7 @@ GameObject:
   - component: {fileID: 2432899611956260262}
   - component: {fileID: 987719138210275681}
   m_Layer: 0
-  m_Name: Image (15)
+  m_Name: Ksusha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
