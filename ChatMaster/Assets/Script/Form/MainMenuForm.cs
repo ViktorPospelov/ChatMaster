@@ -11,13 +11,15 @@ public class MainMenuForm : MonoBehaviour
     [SerializeField] protected LVLItem LVLItem;
     [SerializeField] private GameObject gameForm;
     [SerializeField] private GameDealer gameDealer;
+    [SerializeField] private GameObject gameForm2;
+    [SerializeField] private GameDealer gameDealer2;
     [SerializeField] private Button goGame;
     [SerializeField] private Text coin;
     [SerializeField] private Slider progress;
     [SerializeField] private Button market;
     [SerializeField] private GameObject marketForm;
     [SerializeField] private Button Add;
-    
+
     public AgainPopop againPopop;
 
     protected LvL _currentLevel;
@@ -29,6 +31,8 @@ public class MainMenuForm : MonoBehaviour
 
     private void Start()
     {
+        gameForm = YandexGame.EnvironmentData.isDesktop ? gameForm2 : gameForm;
+        gameDealer = YandexGame.EnvironmentData.isDesktop ? gameDealer2 : gameDealer;
         Add.onClick.AddListener(() =>
         {
             YandexGame.savesData.coin += 100;
@@ -39,8 +43,8 @@ public class MainMenuForm : MonoBehaviour
                 YandexGame.PromptShow();
             }
         });
-       
-        
+
+
         EndGameFlow += NextLevel;
 
         _currentLevel = lvLs[_passedLevel - 1];
@@ -74,7 +78,7 @@ public class MainMenuForm : MonoBehaviour
         {
             SetLvL();
         }
-       
+
         _passedLevel = YandexGame.savesData.progressLvl;
         SetProgress();
     }
