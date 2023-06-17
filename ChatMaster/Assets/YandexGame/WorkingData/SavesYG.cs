@@ -14,8 +14,10 @@ namespace YG
         // Ваши сохранения
         public int coin; 
         public int progressLvl = 0;
+
+        public long lastOpen = 0;
         // ...
-        
-      
+
+
     }
 }
