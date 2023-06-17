@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -21,6 +22,7 @@ public class MainMenuForm : MonoBehaviour
     [SerializeField] private GameObject marketForm;
     [SerializeField] private Button add;
     [SerializeField] private Button gift;
+    [SerializeField] private GameObject giftPopup;
 
     public AgainPopop againPopop;
 
@@ -33,28 +35,9 @@ public class MainMenuForm : MonoBehaviour
 
     private void Start()
     {
-        gameForm = YandexGame.EnvironmentData.isDesktop ? gameForm2 : gameForm;
-        gameDealer = YandexGame.EnvironmentData.isDesktop ? gameDealer2 : gameDealer;
-        //432000000000
-        long time = DateTime.Now.Ticks;
-        
-        gift.gameObject.SetActive(time - YandexGame.savesData.lastOpen > 400000000000);
-        gift.onClick.AddListener(() =>
-        {
-            YandexGame.savesData.lastOpen = DateTime.Now.Ticks;
-            YandexGame.savesData.coin += 100;
-            YandexGame.SaveProgress();
-            coin.text = YandexGame.savesData.coin.ToString();
-            if (YandexGame.EnvironmentData.promptCanShow)
-            {
-                YandexGame.PromptShow();
-            }
-
-            gift.gameObject.SetActive(false);
-        });
-
-        Debug.Log(time);
-        
+        gameForm = Screen.width > Screen.height ? gameForm2 : gameForm;
+        gameDealer = Screen.width > Screen.height ? gameDealer2 : gameDealer;
+     
         
         add.onClick.AddListener(() =>
         {
@@ -67,8 +50,9 @@ public class MainMenuForm : MonoBehaviour
             }
         });
 
-
         EndGameFlow += NextLevel;
+        gift.gameObject.SetActive(false);
+        StartCoroutine(SetGift());
 
         _currentLevel = lvLs[_passedLevel - 1];
         goGame.onClick.AddListener(() =>
@@ -155,6 +139,28 @@ public class MainMenuForm : MonoBehaviour
         ClearLvL();
         SetLvL();
         SetProgress();
+    }
+
+    private IEnumerator SetGift()
+    {
+        yield return new WaitForSeconds(4f);
+        
+        long time = DateTime.Now.Ticks;
+        gift.gameObject.SetActive(time - YandexGame.savesData.lastOpen > 400000000000);
+        gift.onClick.AddListener(() =>
+        {
+            YandexGame.savesData.lastOpen = DateTime.Now.Ticks;
+            YandexGame.savesData.coin += 100;
+            YandexGame.SaveProgress();
+            coin.text = YandexGame.savesData.coin.ToString();
+            if (YandexGame.EnvironmentData.promptCanShow)
+            {
+                YandexGame.PromptShow();
+            }
+
+            gift.gameObject.SetActive(false);
+            giftPopup.SetActive(true);
+        });
     }
 
     public void StarLvl(LvL lvl)

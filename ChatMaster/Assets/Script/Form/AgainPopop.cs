@@ -39,8 +39,8 @@ public class AgainPopop : MonoBehaviour
         });
         _close.onClick.AddListener(() =>
         {
-            _again.onClick.RemoveAllListeners();
             gameObject.SetActive(false);
+            _again.onClick.RemoveAllListeners();
         });
     }
     
