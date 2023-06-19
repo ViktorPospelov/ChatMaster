@@ -146,7 +146,7 @@ public class MainMenuForm : MonoBehaviour
         yield return new WaitForSeconds(4f);
         
         long time = DateTime.Now.Ticks;
-        gift.gameObject.SetActive(time - YandexGame.savesData.lastOpen > 400000000000);
+        gift.gameObject.SetActive(time - YandexGame.savesData.lastOpen > 600000000000);
         gift.onClick.AddListener(() =>
         {
             YandexGame.savesData.lastOpen = DateTime.Now.Ticks;
